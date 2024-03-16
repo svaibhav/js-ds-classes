@@ -8,6 +8,10 @@ class MinHeap {
     console.log(this.heap);
   }
 
+  size() {
+    return this.heap.length;
+  }
+
   push(val) {
     if (isNaN(val)) {
       console.error("Use numeric values")
@@ -70,4 +74,4 @@ const minHeap = new MinHeap();
   x => minHeap.push(x)
 );
 minHeap._printHeapData();
-new Array(20).fill(0).forEach(x => console.log(minHeap.pop()));
+new Array(minHeap.size()).fill(0).forEach(x => console.log(minHeap.pop()));
