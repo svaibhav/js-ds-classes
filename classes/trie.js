@@ -90,10 +90,17 @@ trie.addWord('applicable');
 let words = ['camera', 'cameroon', 'camcord', 'campus', 'calculus', 'calculate', 'canvas', 'calcium', 'calendar', 'clear']
 words.forEach(word => trie.addWord(word));
 
-console.log(trie.search('c', 'ASC', 3));
-console.log(trie.search('ca', 'ASC', 3));
-console.log(trie.search('cam', 'ASC', 3));
-console.log(trie.search('came', 'ASC', 3));
-console.log(trie.search('camer', 'ASC', 3));
-console.log(trie.search('camera', 'ASC', 3));
+let camera = 'camera';
+camera
+  .split('')
+  .forEach(
+    (ch, idx) => console.log(camera.slice(0, idx + 1), "\t=>\t", trie.search(camera.slice(0, idx + 1), 'ASC', 3))
+  );
+
+// console.log(trie.search('c', 'ASC', 3));
+// console.log(trie.search('ca', 'ASC', 3));
+// console.log(trie.search('cam', 'ASC', 3));
+// console.log(trie.search('came', 'ASC', 3));
+// console.log(trie.search('camer', 'ASC', 3));
+// console.log(trie.search('camera', 'ASC', 3));
 // console.log(JSON.stringify(trie));
