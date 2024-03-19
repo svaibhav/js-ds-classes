@@ -9,8 +9,8 @@ class TokenBucket {
   refil() {
     let now = new Date();
     let diff = now - this.lastRefilTime;
-    let tokensToFill = parseInt((now - this.lastRefilTime) * this.maxTokens / this.timeLimit);
-    console.log({diff, tokensToFill, currentTokens: this.currentTokens})
+    let tokensToFill = parseInt(diff * this.maxTokens / this.timeLimit);
+    // console.log({diff, tokensToFill, currentTokens: this.currentTokens})
     if (tokensToFill > 0) {
       this.currentTokens = Math.min(this.currentTokens + tokensToFill, this.maxTokens);
       this.lastRefilTime = now;
@@ -27,10 +27,10 @@ class TokenBucket {
   }
 }
 
-const tb = new TokenBucket(2, 5000);
+const tb = new TokenBucket(1, 1000);
 console.log(tb);
 // new Array(10).fill(0).forEach(() => console.log(tb.allowRequest()));
 
 setInterval(() => {
   console.log(tb.allowRequest());
-}, 1000)
+}, 250)
